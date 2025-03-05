@@ -1,5 +1,6 @@
 import express from "express"
 import 'dotenv/config.js'
+import './config/database.js'
 
 const server = express()
 
@@ -13,7 +14,5 @@ server.get("/",(request,response) => {
 server.get("/hola",(request,response) => {
     response.send('Chao')
 })
-
-
 
 server.listen(PORT,ready)
