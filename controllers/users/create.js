@@ -9,6 +9,8 @@ let create = async (req,res,next) => {
             response: createUser
         })   
     } catch (error) {
+        console.log(error);
+        
         next(error)
     }
 }
