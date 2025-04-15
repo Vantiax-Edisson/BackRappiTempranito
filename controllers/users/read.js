@@ -1,15 +1,16 @@
 import User from "../../models/User.js";
+import "../../models/Car.js"
 
 let allUser = async (req,res,next)=>{
     try {
-        let all = await User.find()
+
+        let all = await User.find().populate('car','').exec();
+
         return res.status(200).json({
             response: all
         })
     } catch (error) {
-        return res.status(500).json({
-            response: error
-        })
+        next(error)
     }
 }
 
@@ -18,14 +19,12 @@ let userByName = async (req,res,next)=>{
 
         let nameQuery = req.params.nameParams
         console.log(nameQuery);
-        let all = await User.find({name: nameQuery})
+        let all = await User.find({name: nameQuery}) 
         return res.status(200).json({
             response: all
         })
     } catch (error) {
-        return res.status(500).json({
-            response: error
-        })
+        next(error) 
     }
 }
 
@@ -39,9 +38,7 @@ let userById = async (req,res,next)=>{
             response: all
         })
     } catch (error) {
-        return res.status(500).json({
-            response: error
-        })
+        next(error)
     }
 }
 
