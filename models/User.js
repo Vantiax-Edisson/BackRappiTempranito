@@ -7,7 +7,8 @@ let schema = Schema({
     password:{type:String,required:true},
     photo:{type:String,required:true},
     role:{type:Number,required:true},
-    car:{type:Schema.Types.ObjectId, ref:'cars',required:false}
+    car:{type:Schema.Types.ObjectId, ref:'cars',required:false},
+    online:{type:Boolean,default:false}
 },{
     timestamps:true
 })
