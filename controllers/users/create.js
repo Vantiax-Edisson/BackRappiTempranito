@@ -1,6 +1,6 @@
 import User from "../../models/User.js";
 
-let create = async (req,res,next) => {
+let register = async (req,res,next) => {
     try {
         let userInfo = req.body
         console.log(userInfo);
@@ -15,4 +15,4 @@ let create = async (req,res,next) => {
     }
 }
 
-export default create
+export default register
